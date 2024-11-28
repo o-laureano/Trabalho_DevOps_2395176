@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s # Intervalo para coletar métricas
+
+scrape_configs:
+  - job_name: "flask_app"
+    static_configs:
+      - targets: ["trabalho-flask_app-1:5000"] # Nome do serviço e porta no Docker Compose
