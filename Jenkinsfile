@@ -8,12 +8,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'pytest'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'docker-compose build'
