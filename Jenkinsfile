@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'docker:stable-dind' }
+    }
     stages {
         stage('Checkout') {
             steps {
