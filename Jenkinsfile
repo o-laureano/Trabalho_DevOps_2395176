@@ -19,7 +19,7 @@ pipeline {
                 script {
                     // Construir as imagens Docker para cada serviço
                     sh '''
-                        docker compose build
+                        docker compose up --build -d
                     '''
 
                     // Subir os containers do Docker com Docker Compose
