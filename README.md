@@ -1,7 +1,7 @@
 # **Documentação do Projeto**
 
-**Autor**: Gabriel Nascimento de Carvalho  
-**RA**: 239783-4
+**Autor**: Henrique Laureano de Souza
+**RA**: 239517-6
 
 ---
 
