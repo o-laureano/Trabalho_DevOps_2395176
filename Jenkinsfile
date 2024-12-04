@@ -37,7 +37,7 @@ pipeline {
                         done
                     '''
                     echo 'Executando os testes...'
-                    sh 'docker compose run --rm test'
+                    sh 'docker-compose run --rm test'
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline {
         }
         always {
             echo 'Limpando contêineres...'
-            sh 'docker compose down'
+            sh 'docker-compose down'
         }
     }
 }
