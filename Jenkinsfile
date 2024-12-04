@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Baixar código do Git') {
             steps {
-                // Clonar o repositório do Git
+                echo 'Clonando o repositório do Git...'
                 git branch: "${BRANCH_NAME}", url: "${REPOSITORY_URL}"
             }
         }
@@ -17,13 +17,9 @@ pipeline {
         stage('Build e Deploy') {
             steps {
                 script {
-                    // Construir as imagens Docker para cada serviço
+                    echo 'Iniciando o build e deploy dos serviços...'
                     sh '''
                         docker compose build
-                    '''
-
-                    // Subir os containers do Docker com Docker Compose
-                    sh '''
                         docker compose up -d
                     '''
                 }
@@ -33,8 +29,14 @@ pipeline {
         stage('Rodar Testes') {
             steps {
                 script {
-                    // Rodar os testes com o pytest (ou qualquer outra ferramenta de testes que você esteja utilizando)
-                    sh 'sleep 40' 
+                    echo 'Aguardando os serviços estarem prontos...'
+                    sh '''
+                        while ! docker ps | grep -q "trabalho-mariadb"; do
+                            echo "Esperando os serviços iniciarem..."
+                            sleep 5
+                        done
+                    '''
+                    echo 'Executando os testes...'
                     sh 'docker compose run --rm test'
                 }
             }
@@ -47,6 +49,10 @@ pipeline {
         }
         failure {
             echo 'A pipeline falhou.'
+        }
+        always {
+            echo 'Limpando contêineres...'
+            sh 'docker compose down'
         }
     }
 }
