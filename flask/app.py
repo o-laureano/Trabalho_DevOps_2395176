@@ -55,6 +55,12 @@ for i in range(attempts):
 def home():
     return jsonify({"message": "Bem-vindo ao Sistema de Cadastro de Alunos!"})
 
+# Garante que o PrometheusMetrics está ativo
+@metrics.do_not_track()
+@app.route('/metrics', methods=['GET'])
+def custom_metrics():
+    return metrics.do_not_track()(metrics.prometheus.do_export)(request.environ, start_response)
+
 # Rota para listar todos os alunos - Método GET
 @app.route('/alunos', methods=['GET'])
 def listar_alunos():
