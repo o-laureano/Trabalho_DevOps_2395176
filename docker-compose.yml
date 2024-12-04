@@ -15,7 +15,7 @@ services:
       context: ./mariadb
       dockerfile: Dockerfile_mariadb
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: school_db
@@ -64,6 +64,6 @@ services:
       - mariadb
       - flask
     environment:
-      - DATABASE_URL=mysql+pymysql://flask_user:flask_password@mariadb:3306/school_db
+      - DATABASE_URL=mysql+pymysql://flask_user:flask_password@mariadb:3307/school_db
     networks:
       - default  # Conecta o contêiner aos mesmos serviços de rede
