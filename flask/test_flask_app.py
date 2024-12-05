@@ -19,11 +19,11 @@ def test_listar_alunos(client: FlaskClient):
 def test_adicionar_aluno(client: FlaskClient):
     """Testa a rota POST /alunos"""
     new_aluno = {
-        "nome": "Lal",
-        "sobrenome": "de Lal",
+        "nome": "henrique",
+        "sobrenome": "laureano",
         "turma": "2 periodo",
-        "disciplinas": "Alemão",
-        "ra": "2007"
+        "disciplinas": "tads",
+        "ra": "12345678"
     }
     response = client.post('/alunos', json=new_aluno)
     assert response.status_code == 201
