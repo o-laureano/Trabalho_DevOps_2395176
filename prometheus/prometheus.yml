@@ -9,7 +9,3 @@ scrape_configs:
   - job_name: "mysqld_exporter" # Nome do job para o MySQL Exporter
     static_configs:
       - targets: ["mysqld_exporter:9104"] # Nome do serviço para o MySQL Exporter
-
-  - job_name: "flask_app"
-    static_configs:
-      - targets: ["trabalho-flask-1:5000"]
