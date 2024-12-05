@@ -31,7 +31,7 @@ Este projeto automatiza a criação de um ambiente de monitoramento com o Grafan
 
 1. **Acessar o Jenkins**
 
-   - Navegue para `http://localhost:8080` e faça login.
+   - Navegue para `http://localhost:8080` e faça login (user: admin, senha: admin).
 
 2. **Criar um Novo Item**
 
@@ -48,7 +48,7 @@ Este projeto automatiza a criação de um ambiente de monitoramento com o Grafan
 4. **Configurar Repositório SCM**
    - Em **SCM**, escolha **Git**.
    - Insira o URL do repositório do projeto:  
-     `https://github.com/GabNasci/trabalho-devops-2397834.git`.
+     `https://github.com/o-laureano/Trabalho_DevOps_2395176.git`.
    - Adicione credenciais, se necessário.
    - Clique em **Salvar**.
 
@@ -57,7 +57,7 @@ Este projeto automatiza a criação de um ambiente de monitoramento com o Grafan
 ### **3. Executar a Pipeline**
 
 1. Retorne à página inicial do Jenkins e selecione a pipeline criada.
-2. Clique em **"Construir Agora"** para iniciar a execução.
+2. Clique em **"Construir Agora" (Build Now)** para iniciar a execução.
 3. Monitore a execução:
    - Acompanhe os logs para garantir que os containers Docker (Prometheus e Grafana) sejam provisionados com sucesso.
    - Certifique-se de que o log final confirma a execução do Grafana.
