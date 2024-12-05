@@ -50,9 +50,9 @@ pipeline {
         failure {
             echo 'A pipeline falhou.'
         }
-        always {
-            echo 'Limpando contêineres...'
-            sh 'docker-compose down'
-        }
+        // always {
+        //     echo 'Limpando contêineres...'
+        //     sh 'docker-compose down'
+        // }
     }
 }
